@@ -1,0 +1,69 @@
+#+TITLE: Projet Record Your Course
+
+
+
+* Table of Contents                                       :TOC_4_gh:noexport:
+- [[#team][Team]]
+- [[#contexte][Contexte]]
+- [[#enregistrer-votre-cours-avec-webrtc][Enregistrer votre cours avec WebRTC]]
+- [[#lancement-de-lenregistrement-du-cours][Lancement de l'enregistrement du cours]]
+- [[#annoter-votre-cours-avec-timesheets][Annoter votre cours avec TimeSheets]]
+- [[#lancement-de-lannotations-du-cours-enregisté][Lancement de l'annotations du cours enregisté]]
+
+* Team
+- Ganeistan
+- Inkaran
+
+* Contexte
+L'objectif du projet est de permettre à un enseignant d'enregistrer son cours en capturant son écran ainsi que sa voix et son visage via sa webcam.
+
+* Enregistrer votre cours avec WebRTC
+Nous avont utilisé la technologie WebRTC et sa bibliothéque pour enregistrer l'écran de l'utilisateur et sa webcam.
+
+* Lancement de l'enregistrement du cours
+  #+ATTR_LATEX: :width 0.4\textwidth :placement [h]
+   [[./main/images/capture3.png]]
+
+ 1. Sélectionnez dans le dossier main le fichier index.html et lancez-le.
+
+ 2. Cliquez sur  [[./main/images/play.png]]  pour démarrer l'enregistrement.
+
+ 3. Cliquez ensuite sur  [[./main/images/stop.png]]  pour stopper l'enregistrement.
+
+ 4. Cliquez sur  [[./main/images/points.png]]  puis sur télécharger.
+
+ 5. Cliquez sur  [[./main/images/timesheets.png]]  pour passer à l'annotation.  
+
+
+# | [[./main/images/play.png]]       | 1. Cliquez sur l'icône pour démarrer l'enregistrement   |
+# | [[./main/images/stop.png]]       | 2. Cliquez ensuite sur l'icône  pour stopper l'enregistrement  |
+# | [[./main/images/play.png]]       | 3. Cliquez sur pour télécharger la vidéo  |
+# | [[./main/images/timesheets.png]] |  4. Cliquez sur pour passer à l'annontation  |
+
+
+
+
+* Annoter votre cours avec TimeSheets 
+Nous avons utilisé la technologie TimeSheets et sa bibliothéque pour pouvoir donner la possibilité à l'utilisateur de faire une table des matiéres à  son cours.
+Pour rendre la saisie et générer une table des matiéres dynamique, nous avons fait appel à Vue.js .
+
+
+
+* Lancement de l'annotations du cours enregisté 
+   #+ATTR_LATEX: :width 0.2\textwidth :placement [h]
+   # +CAPTION:
+   #+LABEL: cr-model
+   [[./main/images/capture4.png]]
+
+
+1. Cliquez sur  [[./record-your-course-timesheets/images/timesheets.png]]  pour annoter la vidéo.
+
+2. Saisir le nom de la partie et dans le format 00:00 le temps à laquelle démarre cette partie. 
+
+3. Répétez les parties étapes 1 et 2 autant de fois que vous avez de parties.
+
+4. Cliquez ensuite sur   [[./record-your-course-timesheets/images/sync1.png]]  pour synchroniser la saisie.
+
+5. Cliquez sur  [[./record-your-course-timesheets/images/play1.png]]  pour sélectionner la vidéo du cours.
+
+6. Voilà c'est terminé si vous voulez effacer les données saisies cliquez sur  [[./record-your-course-timesheets/images/clear1.png]] 

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title> UEVE TimeSheets </title>
+  <link rel="stylesheet" type="text/css" href="style/layout.css">
+  <link rel="stylesheet" type="text/css" href="style/record_your_course.css">
+
+  <link rel="stylesheet" type="text/css" href="style/custom.css">
+
+  <script type="text/javascript" src="scripts/timesheets.js"></script>
+  <script type="text/javascript" src="scripts/timesheets-controls.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="style/timeline.css">
+  <script type="text/javascript" src="scripts/timeline.js"></script>
+
+  <!-- Utilisation vue.js-->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8.0.1/dist/sweetalert2.all.min.js"></script>
+
+
+</head>
+
+
+<body class="timeline">
+  <div id="demo" display: none>
+    <div class="highlight">
+
+      <div id="media" data-timecontainer="excl" data-mediasync="video" data-first="first.click" data-prev="prev.click"
+        data-next="next.click" data-last="last.click">
+
+        <!-- Dynamique-->
+        <template v-for="(a, index) in annotation">
+          <div :id="index" :data-begin="a.duree" smil="idle" class></div>
+
+        </template>
+
+        <!-- Statique-->
+        <!-- 
+        <div id="0" data-begin="0:00">
+        </div>
+
+        <div id="1" data-begin="0:36">
+        </div>
+
+        <div id="2" data-begin="0:43">
+        </div>
+
+        <div id="3" data-begin="1:00">
+        </div> -->
+
+
+      </div>
+    </div>
+
+
+    <div id="mediaController">
+      <video width="700" height="385" autoplay preload="auto">
+        <source type="video/mp4" controls :src="video" />
+      </video>
+
+
+      <div id="timeline">
+        <div id="mediaStart" class="play">
+          <button class="pause">
+            <img src="images/media-pause.png" alt="pause">
+          </button>
+          <button class="play">
+            <img src="images/media-play.png" alt="play">
+          </button>
+        </div>
+
+        <!-- Dynamique-->
+        <div id="mediaTimeline">
+          <template v-for="(a, index) in annotation">
+            <a v-bind:href="'#'+ index" v-bind:style="styleObject"
+              style=" background-color: #2cb3ec"><span>{{a.partie}}</span></a>
+
+
+          </template>
+
+          <!-- Statique-->
+          <!-- <a href="#0" style="width: 10%; background-color: #2cb3ec;"><span>Introduction</span></a>
+            <a href="#1" style="width: 20%; background-color: #2cb3ec;"><span> Partie 1</span></a>
+            <a href="#2" style="width: 65%; background-color: #2cb3ec;"><span> Partie 2</span></a> -->
+        </div>
+
+        <div id="timeValue">
+          <span>0:00</span>
+        </div>
+        <br style="clear: both; line-height: 1px;">
+
+
+      </div>
+
+    </div>
+
+    <div id="sommaire" class="smil-toc ">
+
+      <input src="images/logo-ueve.png" style="height:80px ; width: 200px ;margin-top: 10px" type="image"> </input>
+
+      <div class="getVideo" id="loadvideo">
+        <input style="margin-top: 10px; margin-left: 5px" value="Charger votre video" src="images/timesheets.png"
+          v-on:click="annoter2" type="image"> </input>
+        <input style="margin-top: 10px; margin-left: 5px" value="Charger votre video" src="images/sync1.png"
+          v-on:click="sync" type="image"> </input>
+        <input style="margin-top: 10px; margin-left: 5px" value="Charger votre video" src="images/play1.png"
+          v-on:click="load" type="image"> </input>
+        <input style="margin-top: 10px; margin-left: 5px" value="Charger votre video" src="images/clear1.png"
+          v-on:click="clear" type="image"> </input>
+      </div>
+
+      <h3> Sommaire </h3>
+      <ul class="smil-tocList current" timecontainer="excl" timeaction="class:current" mediasync="#main" smil="active">
+
+        <!-- Sommaire dynamique -->
+        <template v-for="(a, index) in annotation">
+          <li timecontainer="par" smil="idle" class=""><a v-bind:href="'#'+ index" smil="idle"
+              class="">{{ a.partie }}</a>
+            <ul timecontainer="excl" timeaction="class:current" mediasync="#main" smil="idle" class=""> </ul>
+          </li>
+        </template>
+
+      </ul>
+    </div>
+
+
+
+    </p>
+
+
+  </div>
+
+
+  </div>
+
+  <script type="text/javascript" src="scripts/timeline.js"></script>
+  <script type="text/javascript" src="scripts/script.js"></script>
+</body>
+
+</html>
