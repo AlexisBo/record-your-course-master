@@ -128,6 +128,7 @@ captureScreen(function(screen) {
 
             recorder.stopRecording(function() {
                 var blob = recorder.getBlob();
+                invokeSaveAsDialog(blob); 
                 document.querySelector('video').srcObject = null;
                 document.querySelector('video').src = URL.createObjectURL(blob);
                 document.querySelector('video').muted = false;
@@ -137,8 +138,10 @@ captureScreen(function(screen) {
                         track.stop();
                     });
                 });
-            });
+            })
+           
         };
+        
 
         //window.timeout = setTimeout(window.stopCallback, 10 * 1000);
     });
