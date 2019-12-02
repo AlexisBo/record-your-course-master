@@ -61,6 +61,7 @@ methods: {
       }
   },
 
+  //fonction permettant d'ajouter des annotations
   annoter2: async function(){
     const {value: formValues} = await Swal.fire({
       title: 'Entrer nom de la partie et durée',
@@ -76,6 +77,7 @@ methods: {
       }
     })
 
+    //Ajoute une annotation dans les data, avec les élements rentrés
     this.annotation.push({ 
       partie: document.getElementById('swal-input1').value,
       duree: document.getElementById('swal-input2').value
@@ -90,7 +92,7 @@ methods: {
     console.log(localDuree)
 
 
-
+    //Ajoute une nouveau élement, incrémenté, dans partie et durée des data
     this.partie.push(localPartie)
     this.duree.push(localDuree)
 
@@ -149,6 +151,7 @@ methods: {
 
   },
 
+  //Fonction semblant récupérer les données du localStorage pour les mettre dans data. Non utilisé ?
   loaddata: function(){
     tailleItem=localStorage.getItem('taille')
     console.log(tailleItem)
