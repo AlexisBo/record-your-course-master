@@ -42,11 +42,8 @@ methods: {
         }
 
         // On charge la video   
-        this.video = URL.createObjectURL(file)
         var videoNode = document.querySelector('video')
-        var fileURL = URL.createObjectURL(file)
-        videoNode.src = fileURL
-        this.video=videoNode.src
+        videoNode.src=URL.createObjectURL(file)
 
         const Toast = Swal.mixin({
           toast: true,
@@ -137,6 +134,42 @@ methods: {
     console.log(this.partie[0])
   },
 
+  annoterModify: async function(annotation,index){ //modify
+    const {value: formValues} = await Swal.fire({
+      title: 'Entrer nom de la partie et durée',
+      html:
+        '<input id="swal-input1" class="swal2-input" value="'+annotation.partie+'">' +
+        '<input id="swal-input2" class="swal2-input" value="'+annotation.duree+'">',
+      focusConfirm: false,
+      preConfirm: () => {
+        return [
+          document.getElementById('swal-input1').value,
+          document.getElementById('swal-input2').value
+        ]
+      }
+    })
+
+    
+
+
+    this.annotation[index].partie= document.getElementById('swal-input1').value,
+    this.annotation[index].duree= document.getElementById('swal-input2').value
+
+    //On stock les infos saisi par l'utilisateur dans le localstorage
+    localPartie='partie'+index
+    console.log(localPartie)
+
+    localDuree='duree'+index
+    console.log(localDuree)
+
+    inputPartie=document.getElementById('swal-input1').value,
+    inputDuree=document.getElementById('swal-input2').value
+
+    localStorage.setItem(localPartie, inputPartie)
+    localStorage.setItem(localDuree, inputDuree)
+
+  },
+
   loaddata: function(){
     tailleItem=localStorage.getItem('taille')
     console.log(tailleItem)
@@ -176,6 +209,10 @@ methods: {
 
     var videoNode = document.querySelector('video')
     videoNode.src=""
+  },
+  
+  test: function(partie){
+        console.log('Titre : ' + partie.partie + ' - Durée : ' + partie.duree)
   }
 
 },

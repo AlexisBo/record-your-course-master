@@ -118,7 +118,7 @@
         <!-- Sommaire dynamique -->
         <template v-for="(a, index) in annotation">
           <li timecontainer="par" smil="idle" class=""><a v-bind:href="'#'+ index" smil="idle"
-              class="">{{ a.partie }}</a>
+              class="">{{ a.partie }}</a> <button v-on:click="annoterModify(a,index)">Modify</button>
             <ul timecontainer="excl" timeaction="class:current" mediasync="#main" smil="idle" class=""> </ul>
           </li>
         </template>
