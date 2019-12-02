@@ -60,27 +60,6 @@ methods: {
         
       }
   },
-  
-  annoter: async function(){
-    const {value: txt} = await Swal.fire({
-      title: 'Entrez nom de la partie',
-      input: 'text',
-      inputPlaceholder: 'Nom'
-    })
-    
-    if (txt) {
-      const {value: text1} = Swal.fire({
-        title: 'Entrez la durée de cette partie',
-        input: 'text',
-        inputPlaceholder: 'Format 00:00'
-      })
-      .then((result) => {
-        Swal.fire(text1)
-        this.annotation.push({ partie: txt, duree: text1 })
-      })
-    }   
-    
-  },
 
   annoter2: async function(){
     const {value: formValues} = await Swal.fire({
@@ -134,7 +113,7 @@ methods: {
     console.log(this.partie[0])
   },
 
-  annoterModify: async function(annotation,index){ //modify
+  annoterModify: async function(annotation,index){ //modify an annotation
     const {value: formValues} = await Swal.fire({
       title: 'Entrer nom de la partie et durée',
       html:
