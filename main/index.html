@@ -1,3 +1,10 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="css/custom.css" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
 <style>
     html, body {
         margin: 0!important;
@@ -8,7 +15,7 @@
     }
 
     video {
-        width: 30%;
+        width: 100%;
         border-radius: 5px;
         border: 1px solid black;
     }
@@ -16,21 +23,31 @@
 
 <title>UEVE Record</title>
 
+<body>
+    <div class="container">
+        <input src="images/test.jpg" style="height:200px ; width: 400px; margin-bottom: -40px;" type="image"> </input> 
 
-<input src="images/logo1.png" style="height:200px ; width: 400px" type="image"> </input> 
-
-<h1 style="font-family: Snell Roundhand, cursive;" >Enregistrer votre cours et votre webcam  </h1>
-
-<video controls autoplay playsinline style="width: 40%;"></video>
-<div>
-<input style="margin-top: 10px" src="images/play.png" onclick="start()" type="image"> </input>
-
-
-<input style="margin-top: 10px; margin-left: 10px"  src="images/stop.png" onclick="window.stopCallback()" type="image"></input>
-
-<a href="../record-your-course-timesheets/record_your_course.html ">
-<input style="margin-top: 10px; margin-left: 10px"  src="images/timesheets.png"  type="image"></input>
-</a>
+        <h1>Enregistrez votre cours et votre webcam</h1>
+        <div class="row" style="padding-right: 70px;">
+            <div class="col-md-1">
+                <div class="row">
+                    <input class="ml-auto" style="width: 90px; height: 90px;" src="images/record2.png" onclick="start()" type="image"> </input>
+                </div>
+                <div class="row" style="margin-top: 30px;">
+                    <input class="ml-auto" style="width: 90px; height: 90px;" src="images/stop2.png" onclick="window.stopCallback()" type="image"></input>
+                </div>
+                <div class="row" style="margin-top: 30px;">
+                    <a class="ml-auto"  href="../record-your-course-timesheets/record_your_course.html ">
+                        <input style="width: 90px; height: 90px; margin-left: 2px;" src="images/play2.png"  type="image"></input>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-11">
+                <video controls autoplay playsinline style="width: 100%; float: left;"></video>
+            </div>
+        </div>
+    </div>
+</body>
 
 <!-- <button onclick="start()">Démarer</button></div> -->
 
